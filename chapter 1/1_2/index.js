@@ -2,13 +2,27 @@
  * Second version is to use built in fs module write to a CSV
  */
 
-import fs from 'fs';
+import {appendFileSync} from 'fs';
 import {createInterface} from 'readline';
 
+/**
+ * Create a mapping for process input and output
+ */
 const readline = createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
+/**
+ * Wrap readline for async functionality
+ */
+const readLineAsync = message => {
+  return new Promise(resolve => {
+    readline.question(message, answer => {
+      resolve(answer);
+    });
+  });
+} 
 
 class Person {
   constructor(name = "", phoneNumber = "", email = "") {
@@ -17,34 +31,25 @@ class Person {
     this.email = email;
   }
   saveToCSV() {
-    console.log('saved')
+    const content = `${this.name},${this.number},${this.email}`;
+    try {
+      appendFileSync('./contacts.csv', content)
+      console.log(`${this.name} Saved!`)
+    } catch (err) {
+      console.error(err)
+    }
   }
 }
-let x = 1
-// while (x<10) {
-  const p = new Person();
 
-  readline.question('Contact Name:', name => {
-    console.log(`Name is ${name}!`);
-    readline.close();
-    p.saveToCSV();
-    x++;
-  });
-
-
-// }
-
-const digitizeContacts = () => {
-  // Start Node prompt
+const startApp = async () => {
+  const person = new Person();
+  person.name = await readLineAsync('Contact Name: ');
+  person.number = await readLineAsync('Contact Number: ');
+  person.email = await readLineAsync('Contact Email: ');
+  person.saveToCSV()
+  const response = await readLineAsync('Continue? [y to continue]: ');
+  if (response === 'y') await startApp();
+  else readline.close();
 }
 
-// Get user prompt:
-// name, phone number, email --> save to person class, save to CSV
-
-
-// try {
-//   fs.writeFileSync('./test.csv', content)
-// } catch (err) {
-//   console.error(err)
-// }
-// console.log("Success!");
+startApp();

@@ -2,7 +2,7 @@
   "name": "contact-list",
   "version": "1.0.0",
   "type": "module",
-  "description": " digital contact list to CSV app",
+  "description": "digital contact list to CSV app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

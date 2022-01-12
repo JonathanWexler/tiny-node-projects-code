@@ -2,13 +2,13 @@
  * First version is to simply write to a file
  */
 
-import fs from 'fs';
+ import {writeFileSync} from 'fs';
 
-const content = 'Some content!'
-
-try {
-  fs.writeFileSync('./test.txt', content)
-} catch (err) {
-  console.error(err)
-}
-console.log("Success!");
+ const content = 'Test content!'
+ 
+ try {
+   writeFileSync('./test.txt', content)
+   console.log("Success!");
+ } catch (err) {
+   console.error(err)
+ }
