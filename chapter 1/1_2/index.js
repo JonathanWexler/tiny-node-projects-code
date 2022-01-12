@@ -25,13 +25,13 @@ const readLineAsync = message => {
 } 
 
 class Person {
-  constructor(name = "", phoneNumber = "", email = "") {
+  constructor(name = "", number = "", email = "") {
     this.name = name;
-    this.phoneNumber = phoneNumber;
+    this.number = number;
     this.email = email;
   }
   saveToCSV() {
-    const content = `${this.name},${this.number},${this.email}`;
+    const content = `${this.name},${this.number},${this.email}\n`;
     try {
       appendFileSync('./contacts.csv', content)
       console.log(`${this.name} Saved!`)
