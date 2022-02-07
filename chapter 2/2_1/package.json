@@ -1,0 +1,14 @@
+{
+  "name": "restaurant_web_server",
+  "version": "1.0.0",
+  "description": "A web server for a local restaurant",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jon Wexler",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
