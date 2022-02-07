@@ -1,0 +1,16 @@
+{
+  "name": "restaurant_web_server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A simple Node.js web server buiot on Express.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jon Wexler",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {}
+}
