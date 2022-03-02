@@ -7,15 +7,17 @@ const port = 3000;
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.render('pages/index');
+  res.render('index', { name: `What's Fare is Fair` });
 });
 
 app.get('/menu', (req, res) => {
-  res.render('pages/menu', menuItems);
+  res.render('menu', { menuItems });
 });
 
 app.get('/hours', (req, res) => {
-  res.render('pages/hours', workingHours);
+  const days = [ 'monday', 'tuesday', 'wednesday',
+                'thursday', 'friday', 'saturday', 'sunday' ];
+  res.render('hours', { workingHours, days });
 });
 
 app.listen(port, () => {
