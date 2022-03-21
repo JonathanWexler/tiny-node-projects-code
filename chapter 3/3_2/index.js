@@ -2,7 +2,36 @@ import bcrypt from 'bcrypt';
 import promptModule from 'prompt-sync';
 const prompt = promptModule();
 
+// MONGODB
+import {MongoClient} from 'mongodb';
+
 const mockDB = { passwords: {} };
+
+const url = 'mongodb://localhost:27017';
+const client = new MongoClient(url);
+const dbName = 'passwordManager';
+
+async function main() {
+  // Use connect method to connect to the server
+  await client.connect();
+  console.log('Connected successfully to server');
+  const db = client.db(dbName);
+  const authCollection = db.collection('auth');
+  const passwordsCollection = db.collection('passwords');
+
+
+  // the following code examples can be pasted here...
+
+  return [passwordsCollection, authCollection];
+}
+
+console.log('loading DB')
+const [passwordsCollection, authCollection] = await main();
+console.log('COLLECTION', passwordsCollection)
+const findResult2 = await authCollection.find({}).toArray();
+const findResult = await passwordsCollection.find({}).toArray();
+
+// MONGODB
 
 const saveNewPassword = (password) => {
   const hash = bcrypt.hashSync(password, 10);
