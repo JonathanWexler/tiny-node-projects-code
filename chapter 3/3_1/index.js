@@ -50,9 +50,9 @@ const showMenu = () => {
   const response = prompt('>');
 
   if (response === '1') viewPasswords();
-  if (response === '2') promptManageNewPassword();
-  if (response === '3') promptOldPassword();
-  if (response === '4') process.exit();
+  else if (response === '2') promptManageNewPassword();
+  else if (response === '3') promptOldPassword();
+  else if (response === '4') process.exit();
   else {
     console.log(`That's an invalid response.`);
     showMenu();
