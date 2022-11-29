@@ -1,7 +1,11 @@
 body {
   background-color: aliceblue;
 }
-body h1, body h5, body h4, body p, body div {
+body h1,
+body h5,
+body h4,
+body p,
+body div {
   color: #394046;
 }
 body > nav {
@@ -13,34 +17,34 @@ body > nav {
   left: 0;
   backdrop-filter: saturate(180%) blur(20px);
   background-color: var(--nav-background);
-  box-shadow: 0px 1px 0 var(--nav-border)
+  box-shadow: 0px 1px 0 var(--nav-border);
 }
 
 body > nav + * {
-  padding-top: calc(1rem * var(--spacing-factor-xs) + 3.5rem)
+  padding-top: calc(1rem * var(--spacing-factor-xs) + 3.5rem);
 }
 
 @media (min-width: 576px) {
   body > nav + * {
-    padding-top: calc(1rem * var(--spacing-factor-sm) + 3.5rem)
+    padding-top: calc(1rem * var(--spacing-factor-sm) + 3.5rem);
   }
 }
 
 @media (min-width: 768px) {
   body > nav + * {
-    padding-top: calc(1rem * var(--spacing-factor-md) + 3.5rem)
+    padding-top: calc(1rem * var(--spacing-factor-md) + 3.5rem);
   }
 }
 
 @media (min-width: 992px) {
   body > nav + * {
-    padding-top: calc(1rem * var(--spacing-factor-lg) + 3.5rem)
+    padding-top: calc(1rem * var(--spacing-factor-lg) + 3.5rem);
   }
 }
 
 @media (min-width: 1200px) {
   body > nav + * {
-    padding-top: calc(1rem * var(--spacing-factor-xl) + 3.5rem)
+    padding-top: calc(1rem * var(--spacing-factor-xl) + 3.5rem);
   }
 }
 
@@ -59,7 +63,7 @@ body > nav + * {
   padding: var(--spacing) 0;
 }
 
-.hero hgroup>:last-child {
+.hero hgroup > :last-child {
   color: var(--h3);
 }
 

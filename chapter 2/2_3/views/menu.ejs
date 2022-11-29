@@ -14,12 +14,14 @@
     <% for(let item of menuItems){ %>
       <li>
         <!-- Display menu item name in bold -->
-        <strong><%= item.name %></strong>
+        <strong>
+          <%= item.name %>
+        </strong>
         <!-- Display menu description and cost -->
         <%= item.description %>
-        <%= item.cost %>
+          <%= item.cost %>
       </li>
-    <% }%>
+      <% } %>
   </ol>
 </body>
 

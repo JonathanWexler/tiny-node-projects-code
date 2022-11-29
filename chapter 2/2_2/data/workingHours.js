@@ -1,10 +1,10 @@
 export default {
-  defaut: {
+  default: {
     open: 11,
     closed: 22,
   },
   monday: null,
-  sunday:   {
+  sunday: {
     open: 12,
     closed: 20,
   },

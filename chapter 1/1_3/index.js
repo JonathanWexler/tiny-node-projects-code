@@ -2,18 +2,19 @@
  * Third version is to use external packages write to a CSV
  */
 
-import {createObjectCsvWriter} from 'csv-writer';
-import promptModule from 'prompt-sync';
-const prompt = promptModule();
+import { createObjectCsvWriter } from "csv-writer";
+import prompt from "prompt";
+prompt.start();
+prompt.message = "";
 
 const csvWriter = createObjectCsvWriter({
-  path: './contacts.csv',
+  path: "./contacts.csv",
   append: true,
   header: [
-    {id: 'name', title: 'NAME'},
-    {id: 'phone', title: 'PHONE'},
-    {id: 'email', title: 'EMAIL'},
-  ]
+    { id: "name", title: "NAME" },
+    { id: "number", title: "NUMBER" },
+    { id: "email", title: "EMAIL" },
+  ],
 });
 
 class Person {
@@ -24,23 +25,40 @@ class Person {
   }
   saveToCSV() {
     try {
-      const {name, number, email} = this;
-      csvWriter.writeRecords([{name, number, email}])
-      console.log(`${name} Saved!`)
+      const { name, number, email } = this;
+      csvWriter.writeRecords([{ name, number, email }]);
+      console.log(`${name} Saved!`);
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
   }
 }
 
 const startApp = async () => {
   const person = new Person();
-  person.name = await prompt('Contact Name: ');
-  person.number = await prompt('Contact Number: ');
-  person.email = await prompt('Contact Email: ');
-  person.saveToCSV()
-  const response = await prompt('Continue? [y to continue]: ');
-  if (response === 'y') await startApp();
-}
+  const responses = await prompt.get([
+    {
+      name: "name",
+      description: "Contact Name",
+    },
+    {
+      name: "number",
+      description: "Contact Number",
+    },
+    {
+      name: "email",
+      description: "Contact Email",
+    },
+  ]);
+  Object.assign(person, responses);
+  person.saveToCSV();
+  const { again } = await prompt.get([
+    {
+      name: "again",
+      description: "Continue? [y to continue]",
+    },
+  ]);
+  if (again === "y") await startApp();
+};
 
 startApp();

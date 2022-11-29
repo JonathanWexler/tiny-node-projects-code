@@ -1,8 +1,8 @@
 {
-  "name": "contact-list",
+  "name": "food_feeds_rss_app",
   "version": "1.0.0",
+  "description": "",
   "type": "module",
-  "description": " digital contact list to CSV app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,6 @@
   "author": "Jon Wexler",
   "license": "ISC",
   "dependencies": {
-    "csv-writer": "^1.6.0",
-    "prompt": "^1.3.0"
+    "rss-parser": "^3.12.0"
   }
 }
