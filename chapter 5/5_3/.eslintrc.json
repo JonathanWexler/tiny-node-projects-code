@@ -1,0 +1,7 @@
+{
+    "extends": ["airbnb", "prettier"],
+    "env": { 
+        "es2021": true,
+        "node": true
+    }
+}

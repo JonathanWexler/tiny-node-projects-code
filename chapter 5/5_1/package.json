@@ -1,0 +1,30 @@
+{
+  "name": "library_api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "An API for library content",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "keywords": [
+    "API"
+  ],
+  "author": "Jon Wexler",
+  "license": "ISC",
+  "dependencies": {
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "express": "^4.18.1",
+    "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
